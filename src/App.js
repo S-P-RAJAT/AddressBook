@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import PayrollForm from "./components/address_book_form/AddressBookForm";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path="/form">
+              <PayrollForm />
+            </Route>
+            <Route exact path="/form/:id">
+              <PayrollForm />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
     </div>
   );
 }
